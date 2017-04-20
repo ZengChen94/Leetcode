@@ -6,7 +6,7 @@ public class Solution {
         boolean[][] dp = new boolean[s.length()+1][p.length()+1];
         dp[0][0] = true;
         for (int i = 0; i < p.length(); i++) {
-            if (p.charAt(i) == '*') {//can match zero
+            if (p.charAt(i) == '*') {//can match empty
                 dp[0][i+1] = dp[0][i-1];
             }
         }
@@ -16,10 +16,10 @@ public class Solution {
                     dp[i+1][j+1] = dp[i][j];
                 }
                 if (p.charAt(j) == '*') {
-                    if (p.charAt(j-1) != s.charAt(i) && p.charAt(j-1) != '.') {//can only match zero
+                    if (p.charAt(j-1) != s.charAt(i) && p.charAt(j-1) != '.') {//can only match empty
                         dp[i+1][j+1] = dp[i+1][j-1];
                     } else {
-                        dp[i+1][j+1] = (dp[i+1][j] || dp[i][j+1] || dp[i+1][j-1]);//match single one || multiple one || zero
+                        dp[i+1][j+1] = (dp[i][j-1] || dp[i][j+1] || dp[i+1][j-1]);//match single one || multiple one || empty
                     }
                 }
             }

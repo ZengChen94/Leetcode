@@ -11,7 +11,7 @@ public class Solution {
         return partion(lists, 0, lists.length-1);
     }
     
-    //merge a binary tree
+    //merge as binary tree
     public static ListNode partion(ListNode[] lists, int start, int end){
         if(start == end)  return lists[start];
         if(start < end){

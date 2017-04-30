@@ -40,3 +40,34 @@ public class Solution {
         return result1;
     }
 }
+
+public class Solution {
+    // Morris Traversal
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+        
+		while(root != null){
+			if (root.left == null) {
+			    result.add(root.val);
+			    root = root.right;
+			}
+			else {
+			    TreeNode pre = root.left;
+			    while (pre.right != null && pre.right != root)
+			        pre = pre.right;
+			    if (pre.right == null) {
+			        pre.right = root;
+			        root = root.left;
+			    }
+			    else if (pre.right == root) {
+			        result.add(root.val);
+			        pre.right = null;
+			        root = root.right;
+			    }
+			}
+		}
+    
+        return result;
+    }
+}

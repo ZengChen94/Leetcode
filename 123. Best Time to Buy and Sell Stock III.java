@@ -39,8 +39,8 @@ public class Solution {
             for (int i = 1; i <= k; i++){
                 int tmpMax = matrix[i-1][0] - prices[0];
                 for (int j = 1; j < prices.length; j++){
-                    matrix[i][j] = Math.max(matrix[i][j-1], tmpMax + prices[j]);
-                    tmpMax = Math.max(tmpMax, matrix[i-1][j] - prices[j]);
+                    matrix[i][j] = Math.max(matrix[i][j-1], tmpMax + prices[j]);//after sell
+                    tmpMax = Math.max(tmpMax, matrix[i-1][j] - prices[j]);//after buy
                     maxProf = Math.max(matrix[i][j], maxProf);
                 }
             }

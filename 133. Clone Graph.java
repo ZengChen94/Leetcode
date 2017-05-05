@@ -13,8 +13,8 @@ public class Solution {
         
         UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
         
-        HashMap<Integer, UndirectedGraphNode> map = new HashMap();//using node.value to track node
-        map.put(newNode.label, newNode);
+        HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap();//using node.value to track node
+        map.put(node, newNode);
         
         LinkedList<UndirectedGraphNode> queue = new LinkedList();
         queue.add(node);
@@ -22,11 +22,11 @@ public class Solution {
         while (!queue.isEmpty()) {
             UndirectedGraphNode n = queue.pop();
             for (UndirectedGraphNode neighbor : n.neighbors) {
-                if (!map.containsKey(neighbor.label)) {
-                    map.put(neighbor.label, new UndirectedGraphNode(neighbor.label));
+                if (!map.containsKey(neighbor)) {
+                    map.put(neighbor, new UndirectedGraphNode(neighbor.label));
                     queue.add(neighbor);
                 }
-                map.get(n.label).neighbors.add(map.get(neighbor.label));
+                map.get(n).neighbors.add(map.get(neighbor));
             }
         }
         

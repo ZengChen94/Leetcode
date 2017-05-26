@@ -13,7 +13,7 @@ public class MyQueue {
             queue.push(temp.pop());
         }
     }
-    
+
     // Removes the element from in front of queue.
     public int pop() {
         return queue.pop();

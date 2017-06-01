@@ -7,6 +7,15 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+ 
+ /**
+ * 173. Binary Search Tree Iterator
+ * Author: zcunique
+ * Time: O(1)
+ * Space: O(h)
+ * Language: Java
+ * }
+ */
 
 public class BSTIterator {
     
@@ -14,13 +23,9 @@ public class BSTIterator {
     
     public BSTIterator(TreeNode root) {
         stack = new Stack<>();
-        TreeNode cur = root;
-        while(cur != null){
-            stack.push(cur);
-            if(cur.left != null)
-                cur = cur.left;
-            else
-                break;
+        while(root != null) {
+            stack.push(root);
+            root = root.left;
         }
     }
 
@@ -33,7 +38,6 @@ public class BSTIterator {
     public int next() {
         TreeNode node = stack.pop();
         TreeNode cur = node;
-        // traversal right branch
         if(cur.right != null){
             cur = cur.right;
             while(cur != null){

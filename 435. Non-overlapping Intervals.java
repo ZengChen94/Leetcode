@@ -12,7 +12,8 @@ public class Solution {
         if (intervals.length == 0)  
             return 0;
 
-        Arrays.sort(intervals, new myComparator());
+        //Arrays.sort(intervals, new myComparator());
+        Arrays.sort(intervals, ((a, b) -> (a.end - b.end)));
         
         int end = intervals[0].end;
         int count = 1;        

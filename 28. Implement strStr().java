@@ -26,7 +26,8 @@ public class Solution {
         
         int i = 0, j = 0;
     	while (i != haystack.length()){
-    	    while (j != -1 && haystack.charAt(i) != needle.charAt(j)) j = next[j];//next[j] means ..., j-2, j-1
+    	    while (j != -1 && haystack.charAt(i) != needle.charAt(j)) 
+				j = next[j];//next[j] means ..., j-2, j-1
     	    i++;
     	    j++;
     	    if (j == needle.length())
@@ -41,7 +42,8 @@ public class Solution {
     	next[0] = -1;
     	
     	while(i != needle.length()){
-    	    while (j != -1 && needle.charAt(i) != needle.charAt(j)) j = next[j];
+    	    while (j != -1 && needle.charAt(i) != needle.charAt(j)) 
+				j = next[j];
     	    i++;
     	    j++;
     	    next[i] = j;

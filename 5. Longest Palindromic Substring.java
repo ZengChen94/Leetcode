@@ -27,3 +27,7 @@ public class Solution {
     	}
     }
 }
+
+// Method 2
+// Manacher’s Algorithm
+// http://blog.csdn.net/hopeztm/article/details/7932245

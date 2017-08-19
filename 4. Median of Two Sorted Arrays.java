@@ -26,9 +26,9 @@ public class Solution {
         int point1 = Math.min(len1, k/2);
         int point2 = k - point1;
         
-        if (nums1[point1+m-1] < nums2[point2+n-1])
+        if (nums1[m+point1-1] < nums2[n+point2-1])
         	return kthNum(k-point1, nums1, m+point1, nums2, n);
-        else if (nums1[point1+m-1] > nums2[point2+n-1])
+        else if (nums1[m+point1-1] > nums2[n+point2-1])
         	return kthNum(k-point2, nums1, m, nums2, n+point2);
         else 
         	return nums1[point1+m-1];

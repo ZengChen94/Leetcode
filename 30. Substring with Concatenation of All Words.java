@@ -1,28 +1,70 @@
 public class Solution {
-    public List<Integer> findSubstring(String s, String[] words) {
-        List<Integer> res = new ArrayList<Integer>();
-        if (s == null || words == null || words.length == 0) return res;
-        int len = words[0].length(); // length of each word
-        
-        Map<String, Integer> map = new HashMap<String, Integer>(); // map for L
-        for (String w : words) 
-            map.put(w, map.containsKey(w) ? map.get(w) + 1 : 1);
-        
-        for (int i = 0; i <= s.length() - len * words.length; i++) {
-            Map<String, Integer> copy = new HashMap<String, Integer>(map); // copy map
-            for (int j = 0; j < words.length; j++) { // checkc if match
-                String str = s.substring(i + j*len, i + j*len + len); // next word
-                if (copy.containsKey(str)) { // is in remaining words
-                    int count = copy.get(str);
-                    if (count == 1) copy.remove(str);
-                    else copy.put(str, count - 1);
-                    if (copy.isEmpty()) { // matches
-                        res.add(i);
-                        break;
-                    }
-                } else break; // not in L
-            }
-        }
-        return res;
-    }
+    public ArrayList<Integer> findSubstring(String S, String[] L) {  
+        // Note: The Solution object is instantiated only once and is reused by each test case.  
+        ArrayList<Integer> res = new ArrayList<Integer>();  
+        if(S==null || S.length()==0 || L==null || L.length==0)  
+            return res;  
+        HashMap<String,Integer> map = new HashMap<String,Integer>();  
+        for(int i=0;i<L.length;i++)  
+        {  
+            if(map.containsKey(L[i]))  
+            {  
+                map.put(L[i],map.get(L[i])+1);  
+            }  
+            else  
+            {  
+                map.put(L[i],1);  
+            }  
+        }  
+        for(int i=0;i<L[0].length();i++)  
+        {  
+            HashMap<String,Integer> curMap = new HashMap<String,Integer>();  
+            int count = 0;  
+            int left = i;  
+            for(int j = i; j <= S.length() - L[0].length(); j += L[0].length())  
+            {  
+                String str = S.substring(j, j + L[0].length());  
+
+                if(map.containsKey(str))  
+                {  
+                    if(curMap.containsKey(str))  
+                        curMap.put(str, curMap.get(str) + 1);  
+                    else  
+                        curMap.put(str, 1);  
+                    if(curMap.get(str) <= map.get(str))  
+                        count++;  
+                    else  
+                    {  
+                        while(curMap.get(str) > map.get(str))  
+                        {  
+                            String temp = S.substring(left, left + L[0].length());  
+                            if(curMap.containsKey(temp))  
+                            {  
+                                curMap.put(temp, curMap.get(temp) - 1);  
+                                if(curMap.get(temp) < map.get(temp))  
+                                    count--;  
+                            }  
+                            left += L[0].length();  
+                        }  
+                    }  
+                    if(count == L.length)  
+                    {  
+                        res.add(left);
+                        String temp = S.substring(left,left+L[0].length());  
+                        if(curMap.containsKey(temp))  
+                            curMap.put(temp,curMap.get(temp)-1);  
+                        count--;  
+                        left += L[0].length();  
+                    }  
+                }  
+                else  
+                {  
+                    curMap.clear();  
+                    count = 0;  
+                    left = j + L[0].length();  
+                }  
+            }  
+        }  
+        return res;  
+    }  
 }

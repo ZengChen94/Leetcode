@@ -25,7 +25,7 @@ public class Solution {
                     start = mid + 1;
                 }
             } 
-            else {
+            else {//here is very important, when can not make a decision, then move to next step
                 start++;
                 end--;
             }

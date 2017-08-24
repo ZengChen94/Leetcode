@@ -64,7 +64,7 @@ public class Solution {
 	}
 	public void backTrack(String s, int l){
 		if(currLst.size()>0 //the initial str could be palindrome
-			&& l>=s.length()){
+			&& l==s.length()){
 				List<String> r = (ArrayList<String>) currLst.clone();
 				resultLst.add(r);
 		}

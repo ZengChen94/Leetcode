@@ -1,7 +1,7 @@
 public class Solution {
     public int minCut(String s) {
-        boolean[][] dp = new boolean[s.length()][s.length()];
-        int[] min = new int[s.length()];
+        boolean[][] dp = new boolean[s.length()][s.length()];//record whether [i, j] is palindrome or not
+        int[] min = new int[s.length()];//record the minimum of partition
         for(int i = 0; i < s.length(); i ++) 
             dp[i][i] = true;
         min[0] = 0;

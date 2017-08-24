@@ -14,7 +14,7 @@ public class Solution {
         UndirectedGraphNode newNode = new UndirectedGraphNode(node.label);
         
         HashMap<UndirectedGraphNode, UndirectedGraphNode> map = new HashMap();//using node.value to track node
-        map.put(node, newNode);
+        map.put(node, newNode);//node, copyNode
         
         LinkedList<UndirectedGraphNode> queue = new LinkedList();
         queue.add(node);

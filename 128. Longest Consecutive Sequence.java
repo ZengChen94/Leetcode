@@ -10,7 +10,7 @@ public class Solution {
                 int rightLen = (map.containsKey(numTmp + 1)) ? map.get(numTmp + 1) : 0;
                 cnt = leftLen + rightLen + 1;
                 result = Math.max(cnt, result);
-                map.put(numTmp, cnt);
+                map.put(numTmp, cnt);//we need to set this, or the value of key-numTmp may be 0, and then next time it may +1 again
                 map.put(numTmp-leftLen, cnt);
                 map.put(numTmp+rightLen, cnt);
             }

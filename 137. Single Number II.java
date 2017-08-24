@@ -6,6 +6,7 @@ public class Solution {
             ones_copy = ones;
             twos_copy = twos;
             //~nums[i] means which positions are 0
+			//nums[i] means which positions are 1
             ones = ((~ones_copy&~twos_copy)&nums[i])|(ones_copy&~nums[i]); // 0+1 or 1+0
             twos = (ones_copy&nums[i])|(twos_copy&~nums[i]); // 1+1 or 2+0
         }

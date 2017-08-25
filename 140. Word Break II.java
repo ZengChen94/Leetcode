@@ -1,7 +1,7 @@
 public class Solution {
     //memorized dfs
     public List<String> wordBreak(String s, List<String> wordDict) {
-        HashMap<String, LinkedList<String>> map = new HashMap<String, LinkedList<String>>();
+        HashMap<String, LinkedList<String>> map = new HashMap<String, LinkedList<String>>();//here the map memorized
         return dfs(s, wordDict, map);
     }
     

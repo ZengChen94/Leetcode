@@ -4,7 +4,7 @@ public class Solution {
         if (nums.length == 1) return nums[0];
         
         int index = 0;
-        for (int i = 1; i < nums.length; i++){
+        for (int i = 1; i < nums.length; i++){//this method seems to be very practical and smart
             if (nums[i] != nums[i-1]){
                 index = index + 1;
                 nums[index] = nums[i];
@@ -26,3 +26,27 @@ public class Solution {
         return nums[start];
     }
 }
+
+class Solution {
+	public:
+		int findMin(vector<int> &num) {
+			int lo = 0;
+			int hi = num.size() - 1;
+			int mid = 0;
+			
+			while(lo < hi) {
+				mid = lo + (hi - lo) / 2;
+				
+				if (num[mid] > num[hi]) {
+					lo = mid + 1;
+				}
+				else if (num[mid] < num[hi]) {
+					hi = mid;
+				}
+				else { // when num[mid] and num[hi] are same
+					hi--;
+				}
+			}
+			return num[lo];
+		}
+};

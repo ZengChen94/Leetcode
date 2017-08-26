@@ -11,11 +11,11 @@ public class Solution {
             if (mid > 0 && nums[mid] < nums[mid-1])
                 return nums[mid];
             
-            if (nums[start] > nums[mid])
-                end = mid-1;
-            else if (nums[end] < nums[mid])
-                start = mid+1;
-            else return nums[start];
+            if (nums[start] <= nums[mid] && nums[mid] > nums[end]) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
         }
         
         return nums[start];

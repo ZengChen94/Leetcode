@@ -8,7 +8,7 @@ public class MinStack {
         
     }
     
-    public void push(int x) {
+    public void push(int x) {//every time the min updated, push the previous min at first
         if(x <= min){          
             stack.push(min);
             min = x;

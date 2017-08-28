@@ -24,3 +24,5 @@ public class Solution {
         return a;
     }
 }
+
+//method2: connect headA with headA.end. And then set slow and fast to travel it

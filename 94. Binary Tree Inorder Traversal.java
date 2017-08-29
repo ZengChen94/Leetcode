@@ -56,11 +56,11 @@ public class Solution {
 			    TreeNode pre = root.left;
 			    while (pre.right != null && pre.right != root)
 			        pre = pre.right;
-			    if (pre.right == null) {
+			    if (pre.right == null) {//its pre hasn't been traveled
 			        pre.right = root;
 			        root = root.left;
 			    }
-			    else if (pre.right == root) {
+			    else if (pre.right == root) {//its pre has been traveled, then go to next
 			        result.add(root.val);
 			        pre.right = null;
 			        root = root.right;

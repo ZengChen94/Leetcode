@@ -1,6 +1,7 @@
 public class Solution {
     //quickSelect
     public int findKthLargest(int[] nums, int k) {
+		//convert kth largest to (nums.length-k+1) smallest
         return quickSelect(nums, 0, nums.length-1, nums.length-k+1);
     }
     
@@ -9,7 +10,7 @@ public class Solution {
         int end = high;
         int key = nums[low];
         
-        while(end > start){
+        while(end > start){//Here is the core of QuickSort!!!
             while(end > start && nums[end] >= key)
                 end--;
             if(nums[end] <= key){
@@ -27,6 +28,6 @@ public class Solution {
         }
         if(start == k-1) return nums[start];
         else if(start > k-1) return quickSelect(nums, low, start-1, k);
-        else return quickSelect(nums, end+1, high, k);
+        else return quickSelect(nums, end+1, high, k);//keep the fix-index to k and then always find kth largest
     }
 }

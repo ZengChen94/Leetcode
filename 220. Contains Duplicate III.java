@@ -7,6 +7,7 @@ public class Solution {
         SortedSet<Long> set = new TreeSet<Long>();  
           
         for(int j = 0; j < nums.length; j++) { 
+			//return part elements of the sorted collection, ranging from fromElement(Included) to toElement(Not included)
             SortedSet<Long> subSet =  set.subSet((long)nums[j]-t, (long)nums[j]+t+1);  
             
             if(!subSet.isEmpty()) return true;  

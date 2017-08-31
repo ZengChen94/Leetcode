@@ -3,7 +3,7 @@ public class Solution {
         List<Integer> result = new LinkedList<Integer>();
         for (int i = 0; i < input.length(); i++) {
             if (input.charAt(i) == '-' || input.charAt(i) == '*' || input.charAt(i) == '+' ) {
-                List<Integer> part1 = diffWaysToCompute(input.substring(0, i));
+                List<Integer> part1 = diffWaysToCompute(input.substring(0, i));//iterative
                 List<Integer> part2 = diffWaysToCompute(input.substring(i+1));
                 for (Integer p1 : part1) {
                     for (Integer p2 : part2) {

@@ -1,6 +1,6 @@
 public class Solution {
     public int calculate(String s) {
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<Integer>();//stack is for storing result and sign before parenthesis
         int result = 0;
         int number = 0;
         int sign = 1;

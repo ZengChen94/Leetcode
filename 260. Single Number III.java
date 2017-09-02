@@ -14,14 +14,14 @@ public class Solution {
         }
         
         // Pass 2 :
-        int[] rets = {0, 0}; // this array stores the two numbers we will return
+        int[] result = {0, 0}; // this array stores the two numbers we will return
         for (int num : nums)
         {
             if ((num & tmp) == 0) // the bit is not set, divide nums into two groups
-                rets[0] ^= num;
+                result[0] ^= num;
             else // the bit is set
-                rets[1] ^= num;
+                result[1] ^= num;
         }
-        return rets;
+        return result;
     }
 }

@@ -12,7 +12,7 @@ public class Solution {
                     return false;
             }
             else {
-                for (String value : map.values())
+                for (String value : map.values())//here the check is important
                     if (value.equals(words[i]))
                         return false;
                 map.put(pattern.charAt(i), words[i]);

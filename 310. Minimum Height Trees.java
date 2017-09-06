@@ -27,7 +27,7 @@ public class Solution {
                 n--;  
                 for(int leafTmpTmp : graph.get(leafTmp)) { 
                     neighbors[leafTmpTmp] -= 1;
-                    if(neighbors[leafTmpTmp] == 1) 
+                    if(neighbors[leafTmpTmp] == 1) //here is the key
                         newLeaf.add(leafTmpTmp);  
                 }  
             }  

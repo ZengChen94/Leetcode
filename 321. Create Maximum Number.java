@@ -3,6 +3,7 @@ public class Solution {
         Stack <Integer> stack = new Stack <Integer>();
         int[] result = new int[k];
         if (k == 0) return result;
+		//greedy method: single problem --> merge
         for (int i = 0; i <= k; i++) {
             if (i > nums1.length || k-i > nums2.length)
         		continue;

@@ -5,7 +5,7 @@ public class Solution {
         return helper(coins, amount, count);
     }
     
-    //dfs
+    //dp
     private int helper(int[] coins, int remain, int[] count) {
         if(remain < 0) return -1;
         if(remain == 0) return 0; // completed

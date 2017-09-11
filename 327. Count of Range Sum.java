@@ -1,4 +1,5 @@
-public int countRangeSum(int[] nums, int lower, int upper) {
+Class Solution{
+	public int countRangeSum(int[] nums, int lower, int upper) {
         if (nums.length == 0) return 0;
         int cnt = 0;
         List<Long> list = new LinkedList<Long>();
@@ -74,3 +75,6 @@ public int countRangeSum(int[] nums, int lower, int upper) {
         list.add(begin, num);
         return;
     }
+}
+
+//maybe can also use sortedTree, when it comes to range

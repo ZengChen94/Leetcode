@@ -2,7 +2,7 @@
 
 public class Solution {
     public void wiggleSort(int[] nums) {
-        int median = findKthLargest(nums, (nums.length + 1) / 2);
+        int median = findKthLargest(nums, (nums.length + 1) / 2);//important!!!
         int n = nums.length;
 
         int left = 0, i = 0, right = n - 1;

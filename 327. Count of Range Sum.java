@@ -7,15 +7,14 @@ public int countRangeSum(int[] nums, int lower, int upper) {
         for (int i = 1; i < nums.length; i++) {
             nums2[i] = nums2[i-1] + (long)nums[i];
         }
-        //System.out.println("nums: " + Arrays.toString(nums));
         list.add((long)0);
         for (int i = 0; i < nums.length; i++) {
             long lower2 = nums2[i] - (long)upper;
             long upper2 = nums2[i] - (long)lower;
+			//binary search in sorted previous result
             cnt += search(list, lower2, upper2);
+			//binary add in sorted previous result
             merge(list, nums2[i]);
-            //System.out.println("nums[i]: " + nums[i]);
-            //System.out.println("list: " + list);
         }
         return cnt;
     }
@@ -24,10 +23,6 @@ public int countRangeSum(int[] nums, int lower, int upper) {
         int begin = 0; 
         int end = list.size() - 1;
         int tmp1 = 0, tmp2 = 0;
-        
-        //System.out.println("list: " + list);
-        //System.out.println("lower, higher: " + lower2 + ", " + upper2);
-        //System.out.println("");
         
         if (lower2 > list.get(list.size()-1) || upper2 < list.get(0))
             return 0;
@@ -53,10 +48,6 @@ public int countRangeSum(int[] nums, int lower, int upper) {
                 begin = mid + 1;
             }
         }
-        //System.out.println("list: " + list);
-        //System.out.println("lower, higher: " + lower2 + ", " + upper2);
-        //System.out.println("tmp1, tmp2: " + tmp1 + ", " + tmp2);
-        //System.out.println("");
         return tmp2 - tmp1 + 1;
     } 
     

@@ -77,4 +77,4 @@ Class Solution{
     }
 }
 
-//maybe can also use sortedTree, when it comes to range
+//maybe can also use SortedSet, when it comes to range

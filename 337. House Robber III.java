@@ -13,8 +13,10 @@ public class Solution {
     }
     
     private int robSub(TreeNode root, Map<TreeNode, Integer> map) {
-        if (root == null) return 0;
-        if (map.containsKey(root)) return map.get(root);
+        if (root == null) 
+			return 0;
+        if (map.containsKey(root)) 
+			return map.get(root);
         
         int val = 0;
         

@@ -1,4 +1,4 @@
-//http://www.cnblogs.com/grandyang/p/5216856.html
+//
 public class Solution {
     public boolean isSelfCrossing(int[] x) {
         for (int i = 3; i < x.length; i++) {

@@ -1,4 +1,5 @@
 //
+//here presents 3 situations of self-crossing
 public class Solution {
     public boolean isSelfCrossing(int[] x) {
         for (int i = 3; i < x.length; i++) {

@@ -23,6 +23,7 @@ public class Solution {
         while (map.containsKey(cur) && !map.get(cur).isEmpty()) {
             dfs(map.get(cur).poll());
         }
+		//here is a good way to record the trail
         result.add(0, cur);
     }
 }

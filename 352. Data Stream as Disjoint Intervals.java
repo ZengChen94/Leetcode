@@ -19,6 +19,7 @@ public class SummaryRanges {
     public void addNum(int val) {
         if(tree.containsKey(val)) 
             return;
+		//the key is the start of the interval.
         Integer low = tree.lowerKey(val);
         Integer high = tree.higherKey(val);
         if(low != null && high != null && tree.get(low).end + 1 == val && high == val + 1) {

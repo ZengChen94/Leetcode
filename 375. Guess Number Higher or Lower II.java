@@ -1,3 +1,4 @@
+//dp
 public class Solution {
     public int getMoneyAmount(int n) {  
         int[][] matrix = new int[n+1][n+1];  
@@ -12,6 +13,7 @@ public class Solution {
         }  
         int ans = Integer.MAX_VALUE;  
         for(int mid = start; mid <= end; mid++){  
+			//2-dimension array can also represeant interval
             int test = mid + Math.max(pay(matrix, start, mid-1), pay(matrix, mid+1, end));  
             if(test < ans){  
                 ans = test;  

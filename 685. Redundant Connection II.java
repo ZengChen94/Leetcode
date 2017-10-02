@@ -9,7 +9,7 @@ class Solution {
             } else {
                 can2 = new int[] {edges[i][0], edges[i][1]};
                 can1 = new int[] {parent[edges[i][1]], edges[i][1]};
-                edges[i][1] = 0;
+                edges[i][1] = 0;//cancel can2 at first
             }
         }
         for (int i = 0; i < edges.length; i++) {
@@ -20,11 +20,11 @@ class Solution {
                 continue;
             }
             int child = edges[i][1], father = edges[i][0];
-            if (root(parent, father) == child) {
+            if (root(parent, father) == child) {//there is loop
                 if (can1[0] == -1) {
                     return edges[i];
                 }
-                return can1;
+                return can1;//here I think can1 == edges[i]. Remove can2 cannot solve problem, then remove can1, one must be removed among them
             }
             parent[child] = father;
         }

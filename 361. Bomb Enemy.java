@@ -11,7 +11,9 @@ public class Solution {
         
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                
+				// here rowKill and colKill[j] can avoid duplicate search
+				// and it compress the time complexity from O(m*n*(m+n)) to O(m*n+m*n)=O(m*n)
+				
                 // horizontal
                 if (j == 0 || grid[i][j-1] == 'W') {
                     rowKill = 0;

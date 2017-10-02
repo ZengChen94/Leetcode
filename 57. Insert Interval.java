@@ -7,16 +7,19 @@
  *     Interval(int s, int e) { start = s; end = e; }
  * }
  */
-public class Solution {
+class Solution {
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-        for (int i = 0; i < intervals.size(); ){
-            if (newInterval.end < intervals.get(i).start) {//add 
+        if (intervals.size() == 0) {
+            intervals.add(newInterval);
+            return intervals;
+        }
+        for (int i = 0; i < intervals.size(); ) {
+            if (newInterval.end < intervals.get(i).start) {
                 intervals.add(i, newInterval);
                 return intervals;
             }
-            else if (newInterval.start > intervals.get(i).end){
+            else if (newInterval.start > intervals.get(i).end) {
                 i++;
-                continue;
             }
             else {
                 newInterval.start = Math.min(newInterval.start, intervals.get(i).start);
@@ -24,20 +27,7 @@ public class Solution {
                 intervals.remove(i);
             }
         }
-        
-        ////the order doesn't matter too much
-        //if (intervals.size() == 0) {
-        //    intervals.add(newInterval);
-        //    return intervals;
-        //}
-        //if (newInterval.start > intervals.get(intervals.size()-1).end){//add in the end
-    	//	intervals.add(newInterval);
-    	//	return intervals;
-    	//}
-    	
-    	intervals.add(newInterval);
-    	
+        intervals.add(newInterval);
         return intervals;
     }
-    
 }

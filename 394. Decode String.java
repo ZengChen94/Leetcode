@@ -5,6 +5,7 @@ public class Solution {
         Stack<String> resStack = new Stack<>();
         int idx = 0;
         while (idx < s.length()) {
+            //set count
             if (Character.isDigit(s.charAt(idx))) {
                 int count = 0;
                 while (Character.isDigit(s.charAt(idx))) {
@@ -13,11 +14,13 @@ public class Solution {
                 }
                 countStack.push(count);
             }
+			//store the res
             else if (s.charAt(idx) == '[') {
                 resStack.push(res);
                 res = "";
                 idx++;
             }
+			//res = pop_res + conut*res
             else if (s.charAt(idx) == ']') {
                 StringBuilder temp = new StringBuilder (resStack.pop());
                 int repeatTimes = countStack.pop();

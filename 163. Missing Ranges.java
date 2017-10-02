@@ -3,12 +3,16 @@ public class Solution {
         List<String> list = new ArrayList<String>();
         for(int n : nums){
             int justBelow = n - 1;
-            if(lower == justBelow) list.add(lower+"");
-            else if(lower < justBelow) list.add(lower + "->" + justBelow);
+            if(lower == justBelow) 
+				list.add(lower+"");
+            else if(lower < justBelow) 
+				list.add(lower + "->" + justBelow);
             lower = n+1;
         }
-        if(lower == upper) list.add(lower+"");
-        else if(lower < upper) list.add(lower + "->" + upper);
+        if(lower == upper) 
+			list.add(lower+"");
+        else if(lower < upper) 
+			list.add(lower + "->" + upper);
         return list;
     }
 }

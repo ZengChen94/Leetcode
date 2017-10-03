@@ -48,7 +48,7 @@ public class Solution {
                 if (row >= 0 && row < m && col >= 0 && col < n && !visited[row][col]) {
                     visited[row][col] = true;
                     result += Math.max(0, cell.height - heights[row][col]);
-                    queue.offer(new Cell(row, col, Math.max(heights[row][col], cell.height)));
+                    queue.offer(new Cell(row, col, Math.max(heights[row][col], cell.height)));//here is important
                 }
             }
         }

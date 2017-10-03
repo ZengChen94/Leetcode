@@ -16,7 +16,8 @@ public class Solution {
     }
     
     public int dfs(int[][] matrix, int i, int j, int m, int n, int[][] cache) {
-        if(cache[i][j] != 0) return cache[i][j];
+        if(cache[i][j] != 0) 
+			return cache[i][j];
         int max = 1;
         for(int[] dir: dirs) {
             int x = i + dir[0], y = j + dir[1];

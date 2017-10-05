@@ -8,6 +8,7 @@ public class Solution {
         for (int i = 0; i < words.length; ++ i) 
             map.put(words[i], i);
         for (int i = 0; i < words.length; ++ i) {
+			//static the words[i] into left part and then travel the right part can be found
             int l = 0, r = 0;
             while (l <= r) {
                 String s = words[i].substring(l, r);

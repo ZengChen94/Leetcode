@@ -66,3 +66,61 @@ public class Codec {
 // Your Codec object will be instantiated and called as such:  
 // Codec codec = new Codec();  
 // codec.deserialize(codec.serialize(root)); 
+
+// My solution
+/** 
+ * Definition for a binary tree node. 
+ * public class TreeNode { 
+ *     int val; 
+ *     TreeNode left; 
+ *     TreeNode right; 
+ *     TreeNode(int x) { val = x; } 
+ * } 
+ */  
+public class Codec { 
+    
+    // Encodes a tree to a single string.  
+    public String serialize(TreeNode root) {
+        String result = "";
+        return helper(root, result);
+    }  
+    
+    public String helper(TreeNode root, String result) {
+        if (root == null) {
+            result += "#,";
+            return result;
+        }
+        result += (root.val+",");
+        result = helper(root.left, result);
+        result = helper(root.right, result);
+        return result;
+    }
+  
+    int cnt;
+    
+    // Decodes your encoded data to tree.  
+    public TreeNode deserialize(String data) {  
+        String[] vals = data.split(",");
+        if (vals.length == 0)
+            return null;
+        cnt = 0;
+        return helper2(vals);
+    }  
+    
+    public TreeNode helper2(String[] vals) {
+        if (cnt >= vals.length || vals[cnt].equals("#")) {
+            cnt += 1;
+            return null;
+        }
+        TreeNode root = new TreeNode(0);
+        root.val = Integer.parseInt(vals[cnt]);
+        cnt += 1;
+        root.left = helper2(vals);
+        root.right = helper2(vals);
+        return root;
+    }
+}  
+  
+// Your Codec object will be instantiated and called as such:  
+// Codec codec = new Codec();  
+// codec.deserialize(codec.serialize(root)); 

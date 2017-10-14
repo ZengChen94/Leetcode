@@ -14,6 +14,7 @@ public:
         if(len_d == 0) 
 			return intTostring(len);  
         string res = target;  
+		//in fact, here I think we can use PriorityQueue to sort the candidates and then valid them
         dfs("", 0, target, 0, dic, res, len);  
         return res;  
     }  

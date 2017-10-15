@@ -27,6 +27,7 @@ public class Solution {
         int endPoint = 0;
         int counter = 0;
         for (int i = 0; i < intervals.length; i++) {
+			// we only cares about the cloest endPoint but not the corresponding endPoint
             if (starter[i] < ender[endPoint]) {
                 counter++;
             }
@@ -37,3 +38,21 @@ public class Solution {
         return counter;
     }
 }
+
+//Travel
+class Solution {
+public:
+    int minMeetingRooms(vector<Interval>& intervals) {
+        map<int, int> m;
+        for (auto a : intervals) {
+            ++m[a.start];
+            --m[a.end];
+        }
+        int rooms = 0, res = 0;
+		//In C++, here the map is ordered
+        for (auto it : m) {
+            res = max(res, rooms += it.second);
+        }
+        return res;
+    }
+};

@@ -1,15 +1,15 @@
 //Dijksra
+//Anyway, I don't think this is Dijksra. It's just bfs, using PriorityQueue.
 public class Solution {
+	int m, n;
+    int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+	
     public int shortestDistance(int[][] maze, int[] start, int[] destination) {
         // base case
         if(Arrays.equals(start, destination)) return 0;
-        
         m = maze.length; n = maze[0].length;
-        
         return shortestPath(maze, start, destination);
     }
-    int m, n;
-    int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     
     private int shortestPath(int[][] maze, int[] start, int[] destination) {
         // get the vertice has the minimum distance to start

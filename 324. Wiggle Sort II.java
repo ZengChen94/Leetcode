@@ -1,5 +1,5 @@
 // https://discuss.leetcode.com/topic/32929/o-n-o-1-after-median-virtual-indexing
-
+// Vietual Index
 public class Solution {
     public void wiggleSort(int[] nums) {
         int median = findKthLargest(nums, (nums.length + 1) / 2);//important!!!
@@ -7,6 +7,7 @@ public class Solution {
 
         int left = 0, i = 0, right = n - 1;
 
+		// Here I think we can only travel the odd one and adjust some of them to even index.
         while (i <= right) {
 
             if (nums[newIndex(i,n)] > median) {

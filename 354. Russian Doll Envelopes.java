@@ -5,6 +5,7 @@ public class Solution {
         if(envelopes == null || envelopes.length == 0 || envelopes[0] == null || envelopes[0].length != 2)
             return 0;
         
+		//大方向从大到小，小方向从小到大，遍历大方向一定变大，而小方向其实越来越小越好，尽量小
         Arrays.sort(envelopes, new Comparator<int[]>(){
             public int compare(int[] arr1, int[] arr2){
                 if(arr1[0] == arr2[0])

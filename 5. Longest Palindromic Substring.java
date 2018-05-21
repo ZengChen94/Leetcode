@@ -1,3 +1,32 @@
+// dp
+class Solution {
+    public String longestPalindrome(String s) {
+        if (s.length() == 0)
+            return "";
+        boolean[][] dp = new boolean[s.length()][s.length()];
+        String result = s.substring(0, 1);
+        for (int len = 1; len <= s.length(); len++) {
+            for (int i = 0; i+len-1<s.length(); i++) {
+                if (len == 1) {
+                    dp[i][i] = true;
+                }
+                else if (len == 2 && s.charAt(i) == s.charAt(i+1)) {
+                    dp[i][i+1] = true;
+                    result = s.substring(i, i+len);
+                }
+                else {
+                    if (s.charAt(i) == s.charAt(i+len-1) && dp[i+1][i+len-2]) {
+                        dp[i][i+len-1] = true;
+                        result = s.substring(i, i+len);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+}
+
+// extend
 public class Solution {
     int low, maxLength;
 
@@ -30,4 +59,4 @@ public class Solution {
 
 // Method 2
 // Manacher’s Algorithm
-// http://blog.csdn.net/hopeztm/article/details/7932245
+// https://www.cnblogs.com/grandyang/p/4475985.html

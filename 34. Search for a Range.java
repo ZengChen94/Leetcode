@@ -1,42 +1,47 @@
-public class Solution {
+class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int[] result = new int[]{-1, -1};
-        if (nums.length == 0) return result;
-        if (nums.length == 1 && nums[0] != target) return result;
-        if (nums.length == 1 && nums[0] == target) return new int[]{0,0};
+        if (nums.length == 0 || target < nums[0] || target > nums[nums.length-1])
+            return new int[]{-1, -1};
+        if (nums.length == 1) {
+            return nums[0] == target? new int[]{0, 0} : new int[]{-1, -1};
+        }
+        int index1 = -1;
+        int index2 = -1;
         
-        int begin = 0;
-        int end = nums.length - 1;
-        while (begin <= end){
-            int mid = (begin+end)/2;
-            if (nums[mid] == target){
-                result[0] = mid;
-                end = mid-1;
+        int low = 0;
+        int high = nums.length - 1;
+        while (low < high) {
+            if (low + 1 == high) {
+                if (nums[low] == target)
+                    index1 = low;
+                else if (nums[high] == target)
+                    index1 = high;
+                break;
             }
-            else if (nums[mid] > target){
-                end = mid-1;
-            }
-            else{
-                begin = mid+1;
-            }
+            int mid = (low + high) / 2;
+            if (nums[mid] >= target)
+                high = mid;
+            else if (nums[mid] < target)
+                low = mid;
         }
         
-        begin = 0;
-        end = nums.length - 1;
-        while (begin <= end){
-            int mid = (begin+end)/2;
-            if (nums[mid] == target){
-                result[1] = mid;
-                begin = mid+1;
+        low = 0;
+        high = nums.length - 1;
+        while (low < high) {
+            if (low + 1 == high) {
+                if (nums[high] == target)
+                    index2 = high;
+                else if (nums[low] == target)
+                    index2 = low;
+                break;
             }
-            else if (nums[mid] > target){
-                end = mid-1;
-            }
-            else{
-                begin = mid+1;
-            }
+            int mid = (low + high) / 2;
+            if (nums[mid] > target)
+                high = mid;
+            else if (nums[mid] <= target)
+                low = mid;
         }
         
-        return result;
+        return new int[]{index1, index2};
     }
 }
